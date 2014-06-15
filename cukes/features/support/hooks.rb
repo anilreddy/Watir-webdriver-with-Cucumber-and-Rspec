@@ -1,4 +1,9 @@
 require 'watir-webdriver'
+require 'selenium/server'
+
+include Selenium
+
+server = Selenium::Server.new("path/to/jar", :background => true)
 
 Before do
   
@@ -10,6 +15,7 @@ Before do
   
   # You can use start_server.rb script in the support for starting the server
   
+  # server.start
   # capabilities = WebDriver::Remote::Capabilities.htmlunit(:javascript_enabled => true)
   # @browser = Watir::Browser.new(:remote, :url => 'http://127.0.0.1:4444/wd/hub', :desired_capabilities => capabilities)
   
@@ -34,4 +40,5 @@ After do |scenario|
     embed screenshot, 'image/png'
   end
   @browser.close
+  # server.stop
   end
