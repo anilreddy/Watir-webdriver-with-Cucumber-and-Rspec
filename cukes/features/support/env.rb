@@ -8,6 +8,7 @@ require 'fig_newton'
 
 require_all 'lib'
 
+PageObject.default_page_wait=(60)
+PageObject.default_element_wait=(60)
 
 World(PageObject::PageFactory)
-
